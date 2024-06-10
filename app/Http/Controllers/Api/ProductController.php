@@ -13,4 +13,10 @@ class ProductController extends BaseController
 
         return $this->sendResponse($data, 'Success Get Data');
     }
+
+    public function getByCategory($category_id) {
+        $data = Product::where('category_id', $category_id)->get();
+
+        return $this->sendResponse($data, 'Success Get Data By Category');
+    }
 }

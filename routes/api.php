@@ -29,10 +29,14 @@ Route::middleware(['auth:api'])->group(function() {
     Route::get('topping', [ToppingController::class, 'index']);
     Route::get('chairNumber', [ChairController::class, 'index']);
     Route::get('product', [ProductController::class, 'index']);
+    Route::get('product/{category_id}', [ProductController::class, 'getByCategory']);
 
     Route::get('cart', [CartController::class, 'index']);
     Route::post('cart', [CartController::class, 'store']);
     Route::delete('cart/{id}', [CartController::class, 'destroy']);
+
+    Route::post('cart/increment/{cart_id}', [CartController::class, 'increment']);
+    Route::post('cart/decrement/{cart_id}', [CartController::class, 'decrement']);
 
     Route::get('transaction/{type}', [TransactionController::class, 'index']);
     Route::post('transaction', [TransactionController::class, 'store']);

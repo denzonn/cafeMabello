@@ -39,9 +39,24 @@
                     </div>
                 </div>
 
+                <div class="mt-6 flex flex-col gap-2">
+                    <label for="">Deskripsi</label>
+                    <textarea name="description" id="editor" cols="30" rows="10">{!! $data->description !!}</textarea>
+                </div>
+
                 <button type="submit" class="w-full rounded-md bg-primary mt-8 text-white py-2 text-lg">Ubah
                     Menu</button>
             </form>
         </div>
     </div>
 @endsection
+
+@push('addon-script')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

@@ -33,9 +33,13 @@
                     </div>
                     <div class="mt-6 flex flex-col gap-2">
                         <label for="">Foto Menu</label>
-                        <input type="file"  name="photo"
-                            class="w-full border px-4 py-2 rounded-md bg-transparent" accept=".jpg, .jpeg, .png" required />
+                        <input type="file" name="photo" class="w-full border px-4 py-2 rounded-md bg-transparent"
+                            accept=".jpg, .jpeg, .png" required />
                     </div>
+                </div>
+                <div class="mt-6 flex flex-col gap-2">
+                    <label for="">Deskripsi</label>
+                    <textarea name="description" id="editor" cols="30" rows="10"></textarea>
                 </div>
 
                 <button type="submit" class="w-full rounded-md bg-primary mt-8 text-white py-2 text-lg">Tambah
@@ -44,3 +48,13 @@
         </div>
     </div>
 @endsection
+
+@push('addon-script')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush
