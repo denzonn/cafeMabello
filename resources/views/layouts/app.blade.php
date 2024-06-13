@@ -24,10 +24,6 @@
             @include('includes.sidebar')
         </div>
     </div>
-    <div class="fixed bottom-4 left-10 flex flex-row gap-2 items-center">
-        <img src="{{ asset('logo_pln.png') }}" alt="" class="h-7">
-        <img src="{{ asset('logo_bumn.png') }}" alt="" class="h-5">
-    </div>
 
     <div class="relative top-0 left-[25vw] py-10 min-h-screen w-[72vw]">
         @yield('content')

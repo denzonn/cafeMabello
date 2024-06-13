@@ -71,14 +71,19 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var transactionMenuItem = document.querySelector('.fa-cash-register').parentElement;
-        var transactionSubmenu = document.getElementById('transaction-submenu');
+@php
+    $user = Auth::user();
+@endphp
+@if ($user->roles === 'ADMIN')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var transactionMenuItem = document.querySelector('.fa-cash-register').parentElement;
+            var transactionSubmenu = document.getElementById('transaction-submenu');
 
-        transactionMenuItem.addEventListener('click', function(event) {
-            event.preventDefault();
-            transactionSubmenu.classList.toggle('hidden');
+            transactionMenuItem.addEventListener('click', function(event) {
+                event.preventDefault();
+                transactionSubmenu.classList.toggle('hidden');
+            });
         });
-    });
-</script>
+    </script>
+@endif

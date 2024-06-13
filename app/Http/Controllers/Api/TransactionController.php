@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\ChairNumber;
 use App\Models\DetailTransaction;
 use App\Models\DetailTransactionAddTopping;
 use App\Models\Transaction;
@@ -14,7 +15,7 @@ class TransactionController extends BaseController
 {
     public function index($type)
     {
-        $transaction = Transaction::where('user_id', Auth::user()->id)->where('status', $type)->with(['chair', 'detailTransaction.detailTransactionAddTopping.topping'])->get();
+        $transaction = Transaction::where('user_id', Auth::user()->id)->where('status', $type)->with(['chair', 'detailTransaction.product', 'detailTransaction.detailTransactionAddTopping.topping'])->get();
 
         if ($transaction->isEmpty()) {
             return $this->sendError('Transaction Not Found');
@@ -71,6 +72,10 @@ class TransactionController extends BaseController
         }
 
         Cart::where('user_id', Auth::user()->id)->delete();
+
+        ChairNumber::where('id', $request['chair_id'])->update([
+            'status' => 1
+        ]);
 
         return $this->sendResponse($data, 'Success Create Transaction');
     }

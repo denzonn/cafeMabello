@@ -32,9 +32,9 @@
                             <i class="fa-solid fa-circle-check text-4xl text-green-400"></i>
                         </div>
                     @else
-                    <div>
-                        <i class="fa-solid fa-rectangle-xmark text-4xl text-red-400"></i>
-                    </div>
+                        <div>
+                            <i class="fa-solid fa-rectangle-xmark text-4xl text-red-400"></i>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -85,9 +85,8 @@
                         @endif
                     </div>
                 </div>
+            @endforeach
         </div>
-        @endforeach
-
     </div>
 @endsection
 
