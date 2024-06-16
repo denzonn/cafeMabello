@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ asset('build/assets/app-BE-2asW1.css') }}">
+    @include('includes.style')
 </head>
 
 <body>
     <div class="grid grid-cols-2 h-screen bg-gray-100">
         <div><img src="{{ asset('images/background.jpg') }}" alt="" class="h-screen object-cover"></div>
         <div class="flex flex-col justify-center items-center  font-semibold">
-            <div class="text-6xl text-third">MABELLO <br> CAFE</div>
+            <div class="text-6xl text-third">MABALLO <br> CAFE</div>
 
             <div class="bg-third text-white rounded-lg p-4 w-[60%] mt-6">
                 <div class="font-semibold text-3xl text-center">Login</div>

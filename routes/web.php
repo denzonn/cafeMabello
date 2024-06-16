@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ToppingController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Cashier\ProductController as CashierProductController;
 use App\Http\Controllers\Cashier\TransactionController as CashierTransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,11 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 });
 
 Route::prefix('cashier')->middleware(['auth', 'isCashier'])->group(function () {
+    Route::get('product', [CashierProductController::class, 'index'])->name('product-cashier-index');
+    Route::put('product/{id}', [CashierProductController::class, 'update'])->name('product-cashier-update');
+
+    Route::get('get-cashier-product', [CashierProductController::class, 'getData'])->name('productCashierData');
+
     Route::get('transaction-proses', [CashierTransactionController::class, 'proses'])->name('transaction-cashier-proses');
     Route::get('transaction-unpaid', [CashierTransactionController::class, 'unpaid'])->name('transaction-cashier-unpaid');
     Route::get('transaction-paid', [CashierTransactionController::class, 'paid'])->name('transaction-cashier-paid');

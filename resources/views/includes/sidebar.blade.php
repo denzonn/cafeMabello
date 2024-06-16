@@ -36,6 +36,13 @@
             </ul>
         @else
             <li class="font-semibold text-xl">
+                Menu
+            </li>
+            <li
+                class="{{ request()->is('cashier/product*') ? 'bg-primary text-white' : '' }} py-2 px-6 rounded-md  hover:bg-primary hover:text-white transition">
+                <a href="/cashier/product" class="p-0"><i class="fa-solid fa-utensils"></i> Menu</a>
+            </li>
+            <li class="font-semibold text-xl">
                 Transaksi
             </li>
             <li
