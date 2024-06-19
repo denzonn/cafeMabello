@@ -23,10 +23,10 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 $user = Auth::guard($guard)->user();
 
-                if ($user->role === 'ADMIN') {
-                    return redirect()->route('admin.dashboard');
-                } elseif ($user->role === 'CASHIER') {
-                    return redirect()->route('transaction-cashier');
+                if ($user->roles === 'ADMIN') {
+                    return redirect()->route('dashboard');
+                } elseif ($user->roles === 'CASHIER') {
+                    return redirect()->route('transaction-cashier-proses');
                 } else {
                     return redirect()->route('user');
                 }

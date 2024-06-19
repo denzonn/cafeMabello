@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\isCashier;
 use App\Http\Middleware\isUser;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -70,5 +71,6 @@ class Kernel extends HttpKernel
         'isAdmin' => isAdmin::class,
         'isCashier' => isCashier::class,
         'isUser' => isUser::class,
+        'redirectIfAuth' => RedirectIfAuthenticated::class,
     ];
 }

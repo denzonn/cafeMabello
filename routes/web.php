@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('redirectIfAuth');
 
 Route::middleware(['auth', 'isUser'])->group(function () {
     Route::get('/user', function () {
