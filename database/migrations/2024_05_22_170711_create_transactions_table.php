@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('chair_id')->constrained('chair_numbers')->onDelete('cascade');
             $table->integer('total_price');
             $table->string('status');
+            $table->longText('notes')->nullable();
             $table->timestamps();
         });
     }

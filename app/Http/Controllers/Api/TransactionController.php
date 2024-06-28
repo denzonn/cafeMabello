@@ -53,7 +53,8 @@ class TransactionController extends BaseController
             'chair_id' => $request->input('chair_id'),
             'user_id' => Auth::user()->id,
             'total_price' => $totalPrice,
-            'status' => 'PROSES'
+            'status' => 'PROSES',
+            'notes' => $request->input('notes'),
         ]);
 
         foreach ($data as $item) {

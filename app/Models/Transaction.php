@@ -15,6 +15,7 @@ class Transaction extends Model
         'user_id',
         'total_price',
         'status',
+        'notes',
     ];
 
     public function user(){

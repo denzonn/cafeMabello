@@ -50,6 +50,11 @@
                     <div class="w-[2%]">:</div>
                     <div class="w-[78%]">Rp. {{ $data->total_price }}</div>
                 </div>
+                <div class="flex flex-row gap-1">
+                    <div class="w-[20%]">Catatan Pesanan</div>
+                    <div class="w-[2%]">:</div>
+                    <div class="w-[78%]">{{ $data->notes ?? "-" }}</div>
+                </div>
             </div>
         </div>
         <div class="mt-6">
